@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-*$il^^v@4il)lm^nkn7jh@rko)scac#gk@sn8imda!*&5uy+gb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'ec2-54-176-136-218.us-west-1.compute.amazonaws.com']
 
 
 
@@ -58,7 +58,13 @@ MIDDLEWARE = [
 CORS_ALLOW_ALL_ORIGINS = True # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
 CORS_ALLOW_CREDENTIALS = True
 
-
+CORS_ALLOWED_ORIGINS = [
+    'http://recipe-s3-bucket.s3-website-us-west-1.amazonaws.com',
+    'http://localhost:5174',
+    'http://localhost:5173',
+    'http://ec2-54-176-136-218.us-west-1.compute.amazonaws.com',
+    # Add more if needed
+]
 # Allow specific headers, methods, etc.
 CORS_ALLOW_HEADERS = ['*']
 
@@ -70,10 +76,10 @@ CORS_ALLOW_METHODS = [
     'DELETE',
     'OPTIONS',
 ]
-# Allow specific headers, methods, etc.
-CORS_ALLOW_HEADERS = [
-    'content-type',
-]
+# # Allow specific headers, methods, etc.
+# CORS_ALLOW_HEADERS = [
+#     'content-type',
+# ]
 
 CORS_ALLOW_METHODS = [
     'GET',
